@@ -33,7 +33,8 @@ public class TestCRUD extends AppCompatActivity {
         crud = new BancoPalavras(this);
         banco = new BancoDisciplinas(this);
         bancoStatus = new BancoStatus(this);
-
+        //testes de nada
+        System.out.println("teste de nada");
         System.out.println("INSERINDO DISCIPLINAS");
 
         Disciplina disciplina = new Disciplina(1, "Informática Básica");
