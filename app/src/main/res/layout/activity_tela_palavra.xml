@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <TextView
+        android:id="@+id/txtPalavra"
+        android:layout_width="183dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTraduzir"
+        app:layout_constraintEnd_toStartOf="@+id/btnFalar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnTraduzir" />
+
+    <Button
+        android:id="@+id/btnAnterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="Previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtSinonimo" />
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="16dp"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDescricao"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="66dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="70dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtSinonimo"
+        app:layout_constraintEnd_toStartOf="@+id/txtTraducao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtPalavra"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btnFalar"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="24dp"
+        android:src="@android:drawable/presence_audio_busy"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTraduzir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtPalavra"
+        app:layout_constraintTop_toTopOf="@+id/btnTraduzir" />
+
+    <ImageButton
+        android:id="@+id/btnTraduzir"
+        android:layout_width="60sp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:src="@android:drawable/ic_menu_sort_alphabetically"
+        app:layout_constraintEnd_toStartOf="@+id/btnFalar"
+        app:layout_constraintStart_toEndOf="@+id/txtPalavra"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="15dp"
+        android:src="@android:drawable/btn_star"
+        app:layout_constraintBottom_toTopOf="@+id/txtTraducao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtDescricao"
+        app:layout_constraintTop_toBottomOf="@+id/btnFalar" />
+
+    <TextView
+        android:id="@+id/txtSinonimo"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/btnProximo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTraducao" />
+
+    <ImageButton
+        android:id="@+id/btnVoltar"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintBottom_toTopOf="@+id/txtPalavra"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnterior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTraducao"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="188dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtDescricao" />
+
+</android.support.constraint.ConstraintLayout>

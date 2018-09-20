@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.otavio.techwords">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".Controller.ControllerInicial.TelaInicial">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Controller.ControllerInicial.TelaDisciplinas"
+            android:label="@string/title_activity_tela_disciplinas"
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            <meta-data
+                android:name="android.support.DISCIPLINAS_ACTIVITY"
+                android:value=".Controller.TelaInicial" />
+        </activity>
+
+        <activity
+            android:name=".Controller.ControllerInicial.TelaInstrucoes"
+            android:label="@string/title_activity_tela_instrucoes"
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            <meta-data
+                android:name="android.support.INSTRUCOES_ACTIVITY"
+                android:value=".Controller.TelaInicial" />
+        </activity>
+
+        <activity
+            android:name=".Controller.ControllerDesafios.TelaPalavra"
+            android:label="@string/title_activity_tela_palavra"
+            android:parentActivityName=".Controller.ControllerDesafios.TelaPalavra">
+            <meta-data
+                android:name="android.support.PALAVRA_ACTIVITY"
+                android:value=".Controller.TelaPalavra" />
+        </activity>
+
+        <activity
+            android:name=".TestCRUD"
+            android:label="@string/teste"
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            <meta-data
+                android:name="android.support.Teste"
+                android:value=".Controller.TelaInicial" />
+        </activity>
+
+    </application>
+
+</manifest>

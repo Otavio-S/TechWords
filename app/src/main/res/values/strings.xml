@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TechWords</string>
+    <string name="exit">EXIT</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="play">PLAY</string>
+    <string name="teste_banco">Teste Banco</string>
+    <string name="palavra">Palavra</string>
+    <string name="id">ID</string>
+    <string name="descricao">Descrição</string>
+    <string name="buscar">Buscar</string>
+    <string name="techwords">TechWords</string>
+    <string name="text">Text</string>
+    <string name="instructionstxt">Instructions</string>
+    <string name="salvar">SALVAR</string>
+    <string name="teste">Teste</string>
+    <string name="title_activity_tela_instrucoes" />
+    <string name="title_activity_tela_cadastro_teste" />
+    <string name="title_activity_tela_consulta_teste" />
+    <string name="title_activity_tela_disciplinas" />
+    <string name="todo">TODO</string>
+    <string name="instruction">Esse aplicativo tem como objetivo fazer com que os alunos
+        do curso técnico em informática conheçam melhor os termos em inglês utilizado no
+        curso. Ao entrar no programa, clicando no botão jogar, você verá que todas as
+        fases são nomeadas como as disciplinas do curso técnico. Com isso, palavras
+        específicas de cada disciplina serão ensinadas em cada uma delas. Ao entrar em
+        uma disciplina, você começará a ver palavras específicas dela. Ao ler sua
+        explicação, ver uma imagem, ouvir a pronúncia e ver a tradução você terá uma
+        visão mais ampliada sobre cada uma. Ao compreendê-la clique no botão next para
+        passar para a próxima palavra. Ao clicar no botão next após ter visto cinco
+        palavras, você será direcionado a um teste. Esse teste será utilizado para
+        testar se você compreendeu bem o que foi estudado. Ao completar o teste, clique
+        no botão check para checar se conseguiu acertar pelo menos 60% do teste para
+        continuar. Erros e acertos serão mostrados nesse momento. Se você tiver a média
+        necessária, poderá começar a aprender novas palavras. Caso contrário, será
+        levado de volta às palavras que acabaram de serem vistas para revisão.</string>
+    <string name="title_activity_tela_palavra">TelaPalavra</string>
+</resources>

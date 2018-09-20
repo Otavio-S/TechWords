@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TechWords</string>
+    <string name="exit">EXIT</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="play">PLAY</string>
+    <string name="teste_banco">Teste Banco</string>
+    <string name="palavra">Palavra</string>
+    <string name="id">ID</string>
+    <string name="descricao">Descrição</string>
+    <string name="buscar">Buscar</string>
+    <string name="techwords">TechWords</string>
+    <string name="text">Text</string>
+    <string name="instructionstxt">Instructions</string>
+    <string name="salvar">SALVAR</string>
+    <string name="teste">Teste</string>
+</resources>
