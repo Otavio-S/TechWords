@@ -94,7 +94,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
-            while (cursor.moveToNext()) {
+            do {
                 Palavra palavra = new Palavra();
                 palavra.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
                 palavra.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
@@ -103,7 +103,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
                 palavra.setDescricao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DESCRICAO)));
                 palavra.setDisciplina(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DISCIPLINA)));
                 palavras.add(palavra);
-            }
+            } while (cursor.moveToNext());
         }
 
         return palavras;

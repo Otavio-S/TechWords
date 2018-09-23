@@ -69,13 +69,13 @@ public class BancoStatus extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + CamposStatus.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
-            while (cursor.moveToNext()) {
+            do {
                 Status status = new Status();
                 status.setId(cursor.getInt(cursor.getColumnIndex(CamposStatus.COLUNA_ID)));
                 status.setStatus(cursor.getInt(cursor.getColumnIndex(CamposStatus.COLUNA_STATUS)));
                 status.setDisciplina(cursor.getColumnIndex(CamposStatus.COLUNA_DISCIPLINA));
                 statuses.add(status);
-            }
+            } while (cursor.moveToNext());
         }
 
         return statuses;

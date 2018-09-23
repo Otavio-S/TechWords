@@ -40,13 +40,13 @@ public class TelaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
-        Button btnPlay = (Button) findViewById(R.id.btnPlay);
+        Button btnPlay = findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(btnPlayOnClickListener);
 
-        Button btnInstructions = (Button) findViewById(R.id.btnInstructions);
+        Button btnInstructions = findViewById(R.id.btnInstructions);
         btnInstructions.setOnClickListener(btnInstructionsOnClickListener);
 
-        Button btnExit = (Button) findViewById(R.id.btnExit);
+        Button btnExit = findViewById(R.id.btnExit);
         btnExit.setOnClickListener(btnExitOnClickListener);
 
     }

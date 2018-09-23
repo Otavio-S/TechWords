@@ -2,16 +2,20 @@ package com.example.otavio.techwords.Controller.ControllerDesafios;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.otavio.techwords.BancoSQLite.BancoPalavras;
 import com.example.otavio.techwords.BancoSQLite.BancoStatus;
 import com.example.otavio.techwords.Model.Status;
 import com.example.otavio.techwords.R;
+
+import java.lang.reflect.Field;
 
 public class TelaPalavra extends Activity {
 
@@ -142,6 +146,7 @@ public class TelaPalavra extends Activity {
         txtPalavra.setTextSize(50);
         txtDescricao.setText(descricao);
         txtSinonimo.setText(sinonimo);
+        txtTraducao.setVisibility(View.GONE);
 
         ImageButton btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltar.setOnClickListener(btnVoltarOnClickListener);
@@ -158,8 +163,7 @@ public class TelaPalavra extends Activity {
         Button btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(btnProximoOnClickListener);
 
-        //ImageView imgView = findViewById(R.id.imageView);
+        ImageView imgView = findViewById(R.id.imageView);
 
     }
-
 }

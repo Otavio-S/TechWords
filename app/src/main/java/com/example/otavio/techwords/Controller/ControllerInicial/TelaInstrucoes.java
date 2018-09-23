@@ -15,7 +15,7 @@ public class TelaInstrucoes extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_instrucoes);
 
-        ImageButton btnVoltar = (ImageButton) findViewById(R.id.btnVoltar);
+        ImageButton btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

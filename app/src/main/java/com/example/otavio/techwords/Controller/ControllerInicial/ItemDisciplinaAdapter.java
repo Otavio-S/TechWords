@@ -27,7 +27,7 @@ public class ItemDisciplinaAdapter extends ArrayAdapter<Disciplina> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_tela_disciplinas_adapter, parent, false);
         }
 
-        Button btnDisciplina = (Button) convertView.findViewById(R.id.btnDisciplina);
+        Button btnDisciplina = convertView.findViewById(R.id.btnDisciplina);
         btnDisciplina.setText(disciplina.getDisciplina());
 
         return convertView;

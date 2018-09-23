@@ -85,12 +85,12 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + CamposDisciplina.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
-            while (cursor.moveToNext()) {
+            do {
                 Disciplina disciplina = new Disciplina();
                 disciplina.setId(cursor.getInt(cursor.getColumnIndex(CamposDisciplina.COLUNA_ID)));
                 disciplina.setDisciplina(cursor.getString(cursor.getColumnIndex(CamposDisciplina.COLUNA_DISCIPLINA)));
                 disciplinas.add(disciplina);
-            }
+            } while (cursor.moveToNext());
         }
 
         return disciplinas;
