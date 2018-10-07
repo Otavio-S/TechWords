@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,10 +16,9 @@ import com.example.otavio.techwords.BancoSQLite.BancoStatus;
 import com.example.otavio.techwords.Model.Status;
 import com.example.otavio.techwords.R;
 
-import java.lang.reflect.Field;
-
 public class TelaPalavra extends Activity {
 
+    private ImageView imgView;
     private TextView txtPalavra;
     private TextView txtDescricao;
     private TextView txtSinonimo;
@@ -65,6 +65,16 @@ public class TelaPalavra extends Activity {
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
 
+                try {
+                    String imagem = "@drawable/i" + status;
+                    int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
+                    Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
+                    imgView.setVisibility(View.VISIBLE);
+                    imgView.setImageDrawable(res);
+                } catch (Exception e) {
+                    imgView.setVisibility(View.INVISIBLE);
+                }
+
                 //ATUALIZA O STATUS DA DISCIPLINA
                 Status s = new Status();
                 s.setStatus(status);
@@ -99,6 +109,16 @@ public class TelaPalavra extends Activity {
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
+
+                try {
+                    String imagem = "@drawable/i" + status;
+                    int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
+                    Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
+                    imgView.setVisibility(View.VISIBLE);
+                    imgView.setImageDrawable(res);
+                } catch (Exception e) {
+                    imgView.setVisibility(View.INVISIBLE);
+                }
 
                 //ATUALIZA O STATUS DA DISCIPLINA
                 Status s = new Status();
@@ -146,7 +166,7 @@ public class TelaPalavra extends Activity {
         txtPalavra.setTextSize(50);
         txtDescricao.setText(descricao);
         txtSinonimo.setText(sinonimo);
-        txtTraducao.setVisibility(View.GONE);
+        txtTraducao.setVisibility(View.INVISIBLE);
 
         ImageButton btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltar.setOnClickListener(btnVoltarOnClickListener);
@@ -163,7 +183,17 @@ public class TelaPalavra extends Activity {
         Button btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(btnProximoOnClickListener);
 
-        ImageView imgView = findViewById(R.id.imageView);
+        imgView = findViewById(R.id.imageView);
+
+        try {
+            String imagem = "@drawable/i" + this.status;
+            int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
+            Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
+            imgView.setVisibility(View.VISIBLE);
+            imgView.setImageDrawable(res);
+        } catch (Exception e) {
+            imgView.setVisibility(View.INVISIBLE);
+        }
 
     }
 }
