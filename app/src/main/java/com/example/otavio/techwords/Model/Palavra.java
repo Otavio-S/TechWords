@@ -23,7 +23,7 @@ public class Palavra implements Parcelable {
     public Palavra() {
     }
 
-    protected Palavra(Parcel in) {
+    private Palavra(Parcel in) {
         this.id = in.readInt();
         this.palavra = in.readString();
         this.descricao = in.readString();

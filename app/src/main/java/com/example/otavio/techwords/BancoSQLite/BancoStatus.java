@@ -1,5 +1,6 @@
 package com.example.otavio.techwords.BancoSQLite;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -66,7 +67,7 @@ public class BancoStatus extends SQLiteOpenHelper {
 
         List<Status> statuses = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposStatus.NOME_TABELA, null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposStatus.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -128,11 +129,9 @@ public class BancoStatus extends SQLiteOpenHelper {
 
         ContentValues valores = new ContentValues();
         valores.put(CamposStatus.COLUNA_STATUS, status.getStatus());
-        System.out.println(valores);
 
         String selecao = CamposStatus.COLUNA_DISCIPLINA + " = ?";
         String[] selecaoArgs = {String.valueOf(status.getDisciplina())};
-        System.out.println(status.getDisciplina());
 
         int count = db.update(
                 CamposStatus.NOME_TABELA,

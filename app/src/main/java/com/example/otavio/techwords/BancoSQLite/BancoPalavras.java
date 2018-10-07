@@ -1,5 +1,6 @@
 package com.example.otavio.techwords.BancoSQLite;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -73,10 +74,10 @@ public class BancoPalavras extends SQLiteOpenHelper {
         }
     }
 
-    public int UltimoID() {
+    private int UltimoID() {
         int id = 0;
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA, null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA, null);
 
         if (cursor.moveToLast()) {
             Palavra palavra = new Palavra();
@@ -91,7 +92,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
 
         List<Palavra> palavras = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA, null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -113,7 +114,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
 
         List<Palavra> palavras = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_ID + " = " + String.valueOf(id), null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_ID + " = " + String.valueOf(id), null);
 
         if (cursor.moveToFirst()) {
             Palavra palavra = new Palavra();

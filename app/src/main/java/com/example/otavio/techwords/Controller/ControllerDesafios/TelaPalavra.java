@@ -79,17 +79,9 @@ public class TelaPalavra extends Activity {
                 Status s = new Status();
                 s.setStatus(status);
                 s.setDisciplina(disciplina);
-                System.out.println(bancoStatus.diminuiStatus(s));
+                bancoStatus.diminuiStatus(s);
             } else {
                 finish();
-            }
-
-            System.out.printf("Percorrendo o ArrayList (usando o índice - PALAVRA ANTERIOR)\n");
-            int n2 = bancoStatus.carregaDados().size();
-            for (int i2 = 0; i2 < n2; i2++) {
-                System.out.printf("Posição %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getId());
-                System.out.printf("Status %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getStatus());
-                System.out.printf("Disciplina %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getDisciplina());
             }
         }
     };
@@ -124,18 +116,10 @@ public class TelaPalavra extends Activity {
                 Status s = new Status();
                 s.setStatus(status);
                 s.setDisciplina(disciplina);
-                System.out.println(bancoStatus.aumentaStatus(s));
+                bancoStatus.aumentaStatus(s);
             } else {
                 // count = 0;
                 System.out.println("CHAMAR NOVA TELA (TESTE)");
-            }
-
-            System.out.printf("Percorrendo o ArrayList (usando o índice - PRÓXIMA PALAVRA)\n");
-            int n2 = bancoStatus.carregaDados().size();
-            for (int i2 = 0; i2 < n2; i2++) {
-                System.out.printf("Posição %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getId());
-                System.out.printf("Status %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getStatus());
-                System.out.printf("Disciplina %d - %s\n", i2, bancoStatus.carregaDados().get(i2).getDisciplina());
             }
         }
     };
@@ -157,7 +141,6 @@ public class TelaPalavra extends Activity {
 
         Status stats = bancoStatus.carregaStatus(String.valueOf(this.disciplina));
         this.status = stats.getStatus();
-        System.out.println(this.status);
 
         String palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
         String descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();

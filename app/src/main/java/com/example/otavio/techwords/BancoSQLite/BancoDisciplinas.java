@@ -1,5 +1,6 @@
 package com.example.otavio.techwords.BancoSQLite;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -64,10 +65,10 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
         }
     }
 
-    public int UltimoID() {
+    private int UltimoID() {
         int id = 0;
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposDisciplina.NOME_TABELA, null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposDisciplina.NOME_TABELA, null);
 
         if (cursor.moveToLast()) {
             Disciplina disciplina = new Disciplina();
@@ -82,7 +83,7 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
 
         List<Disciplina> disciplinas = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CamposDisciplina.NOME_TABELA, null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposDisciplina.NOME_TABELA, null);
 
         if (cursor.moveToFirst()) {
             do {
