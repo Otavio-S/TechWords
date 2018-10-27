@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,14 @@ import com.example.otavio.techwords.BancoSQLite.BancoStatus;
 import com.example.otavio.techwords.Model.Status;
 import com.example.otavio.techwords.R;
 
+import java.util.Locale;
+
 public class TelaPalavra extends Activity {
 
+    private String palavra;
+    private String descricao;
+    private String sinonimo;
+    private TextToSpeech toSpeech;
     private ImageView imgView;
     private TextView txtPalavra;
     private TextView txtDescricao;
@@ -39,13 +46,23 @@ public class TelaPalavra extends Activity {
         @Override
         public void onClick(View v) {
             String traducao = bancoPalavras.carregaDadosPorID(status).get(0).getTraducao();
+            txtTraducao.setVisibility(View.VISIBLE);
             txtTraducao.setText(traducao);
         }
     };
     private View.OnClickListener btnFalarOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            toSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                @Override
+                public void onInit(int i) {
+                    if (i == TextToSpeech.SUCCESS) {
+                        toSpeech.setLanguage(Locale.US);
+                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.speak(palavra, TextToSpeech.QUEUE_FLUSH, null, null);
+                    }
+                }
+            });
         }
     };
 
@@ -58,12 +75,13 @@ public class TelaPalavra extends Activity {
             status = status - 1;
             if (status != 0) {
                 count -= 1;
-                String palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
-                String descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
-                String sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
+                palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
+                descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
+                sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
+                txtTraducao.setVisibility(View.INVISIBLE);
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -95,12 +113,13 @@ public class TelaPalavra extends Activity {
             if (count != 4) {
                 count += 1;
                 status = status + 1;
-                String palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
-                String descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
-                String sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
+                palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
+                descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
+                sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
+                txtTraducao.setVisibility(View.INVISIBLE);
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -142,9 +161,9 @@ public class TelaPalavra extends Activity {
         Status stats = bancoStatus.carregaStatus(String.valueOf(this.disciplina));
         this.status = stats.getStatus();
 
-        String palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
-        String descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
-        String sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
+        palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
+        descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
+        sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
         txtPalavra.setText(palavra);
         txtPalavra.setTextSize(50);
         txtDescricao.setText(descricao);
@@ -179,4 +198,5 @@ public class TelaPalavra extends Activity {
         }
 
     }
+
 }

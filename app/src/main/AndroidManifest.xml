@@ -53,6 +53,8 @@
                 android:value=".Controller.TelaInicial" />
         </activity>
 
+        <activity android:name=".BancoSQLite.DadosIniciais" />
+
     </application>
 
 </manifest>
