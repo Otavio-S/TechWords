@@ -1,20 +1,22 @@
 package com.example.otavio.techwords.BancoSQLite;
 
 import android.app.Activity;
+import android.content.Context;
 
 import com.example.otavio.techwords.Model.Disciplina;
 import com.example.otavio.techwords.Model.Palavra;
+import com.example.otavio.techwords.Model.Status;
 
-public class DadosIniciais extends Activity {
+public class DadosIniciais {
 
     private BancoPalavras crud;
     private BancoDisciplinas banco;
     private BancoStatus bancoStatus;
 
-    public void insereDados() {
-        crud = new BancoPalavras(this);
-        banco = new BancoDisciplinas(this);
-        bancoStatus = new BancoStatus(this);
+    public void insereDados(Context context) {
+        crud = new BancoPalavras(context);
+        banco = new BancoDisciplinas(context);
+        bancoStatus = new BancoStatus(context);
 
         System.out.println("INSERINDO DISCIPLINAS");
         Disciplina disciplina0 = new Disciplina(1, "Banco de Dados");
@@ -33,6 +35,25 @@ public class DadosIniciais extends Activity {
         System.out.println(banco.insereDado(disciplina6));
         Disciplina disciplina7 = new Disciplina(8, "Web");
         System.out.println(banco.insereDado(disciplina7));
+
+        System.out.println("INSERINDO STATUS");
+        Status status0 = new Status(1, 166,1);
+        System.out.println(bancoStatus.insereDado(status0));
+        Status status1 = new Status(2, 1,2);
+        System.out.println(bancoStatus.insereDado(status1));
+        Status status2 = new Status(3, 55,3);
+        System.out.println(bancoStatus.insereDado(status2));
+        Status status3 = new Status(4, 79,4);
+        System.out.println(bancoStatus.insereDado(status3));
+        Status status4 = new Status(5, 27,5);
+        System.out.println(bancoStatus.insereDado(status4));
+        Status status5 = new Status(6, 105,6);
+        System.out.println(bancoStatus.insereDado(status5));
+        Status status6 = new Status(7, 139,7);
+        System.out.println(bancoStatus.insereDado(status6));
+        Status status7 = new Status(8, 191,8);
+        System.out.println(bancoStatus.insereDado(status7));
+
 
         Palavra palavra0 = new Palavra(1, "User", "Usuário", "Utilizador.", "Pessoa que faz uso do computador, de programas, sistemas ou serviços informáticos.", "2");
         System.out.println(crud.insereDado(palavra0));
@@ -483,6 +504,9 @@ public class DadosIniciais extends Activity {
         Palavra palavra223 = new Palavra(224, "Cookie", "Cookies", " ", "Utilizados por sites principalmente para identificar e armazenar informações sobre os visitantes. Eles são pequenos arquivos de texto que ficam gravados no computador do internauta e podem ser recuperados pelo site que o enviou durante a navegação.", "8");
         System.out.println(crud.insereDado(palavra223));
 
+        crud.close();
+        bancoStatus.close();
+        banco.close();
 
     }
 

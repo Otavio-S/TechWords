@@ -54,6 +54,8 @@
         </activity>
 
         <activity android:name=".BancoSQLite.DadosIniciais" />
+        <activity android:name=".Controller.ControllerDesafios.TelaDesafio1" />
+        <activity android:name=".Controller.ControllerDesafios.TelaDesafio4" />
 
     </application>
 

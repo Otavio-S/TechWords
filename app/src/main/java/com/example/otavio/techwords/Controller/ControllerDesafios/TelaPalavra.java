@@ -139,6 +139,9 @@ public class TelaPalavra extends Activity {
             } else {
                 // count = 0;
                 System.out.println("CHAMAR NOVA TELA (TESTE)");
+                Intent intent = new Intent(TelaPalavra.this, TelaDesafio4.class);
+                intent.putExtra("id", status);
+                startActivity(intent);
             }
         }
     };

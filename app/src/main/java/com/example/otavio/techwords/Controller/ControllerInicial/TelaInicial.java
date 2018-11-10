@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.otavio.techwords.BancoSQLite.BancoPalavras;
 import com.example.otavio.techwords.BancoSQLite.DadosIniciais;
+import com.example.otavio.techwords.Model.Palavra;
 import com.example.otavio.techwords.R;
+
+import java.util.List;
 
 public class TelaInicial extends AppCompatActivity {
 
@@ -40,8 +44,15 @@ public class TelaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
-        DadosIniciais dadosIniciais = new DadosIniciais();
-        dadosIniciais.insereDados();
+        BancoPalavras bancoPalavras = new BancoPalavras(getApplicationContext());
+        List<Palavra> palavraList = bancoPalavras.carregaDados();
+
+        if (palavraList.isEmpty()) {
+            DadosIniciais dadosIniciais = new DadosIniciais();
+            dadosIniciais.insereDados(getApplicationContext());
+        }
+
+        bancoPalavras.close();
 
         Button btnPlay = findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(btnPlayOnClickListener);

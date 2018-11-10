@@ -112,24 +112,47 @@ public class BancoPalavras extends SQLiteOpenHelper {
 
     public List<Palavra> carregaDadosPorID(int id) {
 
-        List<Palavra> palavras = new ArrayList<>();
+        List<Palavra> palavra = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_ID + " = " + String.valueOf(id), null);
 
         if (cursor.moveToFirst()) {
-            Palavra palavra = new Palavra();
-            palavra.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
-            palavra.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
-            palavra.setTraducao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_TRADUCAO)));
-            palavra.setSinonimo(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_SINONIMO)));
-            palavra.setDescricao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DESCRICAO)));
-            palavra.setDisciplina(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DISCIPLINA)));
-            palavras.add(palavra);
+            Palavra word = new Palavra();
+            word.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
+            word.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
+            word.setTraducao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_TRADUCAO)));
+            word.setSinonimo(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_SINONIMO)));
+            word.setDescricao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DESCRICAO)));
+            word.setDisciplina(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DISCIPLINA)));
+            palavra.add(word);
 
         }
 
-        return palavras;
+        return palavra;
     }
+
+    public List<Palavra> carregaDadosAleatorio(int id1, int id2) {
+
+        List<Palavra> palavra = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT " + CamposPalavra.COLUNA_PALAVRA + " FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_ID + " BETWEEN " + String.valueOf(id1) + " AND " + String.valueOf(id2) + " ORDER BY random()";
+        System.out.println("AQUI     " + query);
+
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(query, null);
+
+
+        if (cursor.moveToFirst()) {
+            do {
+                Palavra word = new Palavra();
+                word.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
+                palavra.add(word);
+            } while (cursor.moveToNext());
+        }
+
+        return palavra;
+    }
+
+    // cod between x and y order by rand()
 
     public String alteraRegistro(Palavra palavra) {
         SQLiteDatabase db = getWritableDatabase();

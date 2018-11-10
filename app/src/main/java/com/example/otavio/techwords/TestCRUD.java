@@ -111,6 +111,10 @@ public class TestCRUD extends AppCompatActivity {
             System.out.printf("Disciplina %d - %s\n", i, crud.carregaDados().get(i).getDisciplina());
         }
 
+        crud.close();
+        banco.close();
+        bancoStatus.close();
+
     }
 
 }

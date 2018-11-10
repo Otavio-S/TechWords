@@ -41,6 +41,8 @@ public class TelaDisciplinas extends Activity {
                 startActivity(intent);
             }
         });
+
+        banco.close();
     }
 
 }
