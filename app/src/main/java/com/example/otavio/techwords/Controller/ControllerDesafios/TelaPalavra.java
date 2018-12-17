@@ -42,6 +42,7 @@ public class TelaPalavra extends Activity {
             finish();
         }
     };
+
     private View.OnClickListener btnTraduzirOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -50,6 +51,7 @@ public class TelaPalavra extends Activity {
             txtTraducao.setText(traducao);
         }
     };
+
     private View.OnClickListener btnFalarOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -69,11 +71,11 @@ public class TelaPalavra extends Activity {
     private View.OnClickListener btnAnteriorOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            txtTraducao.setText("");
+            txtTraducao.setVisibility(View.INVISIBLE);
 
             //CARREGA PALAVRA ANTERIOR
             status = status - 1;
-            if (status != 0) {
+            if (count > 0) {
                 count -= 1;
                 palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
                 descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
@@ -81,7 +83,6 @@ public class TelaPalavra extends Activity {
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
-                txtTraducao.setVisibility(View.INVISIBLE);
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -107,7 +108,7 @@ public class TelaPalavra extends Activity {
     private View.OnClickListener btnProximoOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            txtTraducao.setText("");
+            txtTraducao.setVisibility(View.INVISIBLE);
 
             //CARREGA PRÒXIMA PALAVRA
             if (count != 4) {
@@ -119,7 +120,6 @@ public class TelaPalavra extends Activity {
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
                 txtSinonimo.setText(sinonimo);
-                txtTraducao.setVisibility(View.INVISIBLE);
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -137,9 +137,8 @@ public class TelaPalavra extends Activity {
                 s.setDisciplina(disciplina);
                 bancoStatus.aumentaStatus(s);
             } else {
-                // count = 0;
-                System.out.println("CHAMAR NOVA TELA (TESTE)");
-                Intent intent = new Intent(TelaPalavra.this, TelaDesafio4.class);
+                //CHAMA A TELA DESAFIO
+                Intent intent = new Intent(TelaPalavra.this, TelaDesafio1.class);
                 intent.putExtra("id", status);
                 startActivity(intent);
             }

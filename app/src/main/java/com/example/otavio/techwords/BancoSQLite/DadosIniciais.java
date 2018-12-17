@@ -1,6 +1,5 @@
 package com.example.otavio.techwords.BancoSQLite;
 
-import android.app.Activity;
 import android.content.Context;
 
 import com.example.otavio.techwords.Model.Disciplina;
@@ -37,21 +36,21 @@ public class DadosIniciais {
         System.out.println(banco.insereDado(disciplina7));
 
         System.out.println("INSERINDO STATUS");
-        Status status0 = new Status(1, 166,1);
+        Status status0 = new Status(1, 166, 1);
         System.out.println(bancoStatus.insereDado(status0));
-        Status status1 = new Status(2, 1,2);
+        Status status1 = new Status(2, 1, 2);
         System.out.println(bancoStatus.insereDado(status1));
-        Status status2 = new Status(3, 55,3);
+        Status status2 = new Status(3, 55, 3);
         System.out.println(bancoStatus.insereDado(status2));
-        Status status3 = new Status(4, 79,4);
+        Status status3 = new Status(4, 79, 4);
         System.out.println(bancoStatus.insereDado(status3));
-        Status status4 = new Status(5, 27,5);
+        Status status4 = new Status(5, 27, 5);
         System.out.println(bancoStatus.insereDado(status4));
-        Status status5 = new Status(6, 105,6);
+        Status status5 = new Status(6, 105, 6);
         System.out.println(bancoStatus.insereDado(status5));
-        Status status6 = new Status(7, 139,7);
+        Status status6 = new Status(7, 139, 7);
         System.out.println(bancoStatus.insereDado(status6));
-        Status status7 = new Status(8, 191,8);
+        Status status7 = new Status(8, 191, 8);
         System.out.println(bancoStatus.insereDado(status7));
 
 

@@ -16,7 +16,7 @@ import java.util.List;
 public class BancoPalavras extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "TechWordsPalavras.db";
-    private static final int VERSAO_BANCO = 4;
+    private static final int VERSAO_BANCO = 5;
 
     public BancoPalavras(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -25,7 +25,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + CamposPalavra.NOME_TABELA + " (" +
-                CamposPalavra.COLUNA_ID + " TEXT," +
+                CamposPalavra.COLUNA_ID + " INTEGER," +
                 CamposPalavra.COLUNA_PALAVRA + " TEXT," +
                 CamposPalavra.COLUNA_TRADUCAO + " TEXT," +
                 CamposPalavra.COLUNA_SINONIMO + " TEXT," +
@@ -135,7 +135,11 @@ public class BancoPalavras extends SQLiteOpenHelper {
 
         List<Palavra> palavra = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT " + CamposPalavra.COLUNA_PALAVRA + " FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_ID + " BETWEEN " + String.valueOf(id1) + " AND " + String.valueOf(id2) + " ORDER BY random()";
+        String query = "SELECT " + CamposPalavra.COLUNA_PALAVRA +
+                " FROM " + CamposPalavra.NOME_TABELA +
+                " WHERE " + CamposPalavra.COLUNA_ID + " >= " + String.valueOf(id1) +
+                " AND " + CamposPalavra.COLUNA_ID + " <= " + String.valueOf(id2) +
+                " ORDER BY random()";
         System.out.println("AQUI     " + query);
 
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(query, null);
