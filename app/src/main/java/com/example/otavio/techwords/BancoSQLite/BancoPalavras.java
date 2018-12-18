@@ -135,8 +135,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
 
         List<Palavra> palavra = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT " + CamposPalavra.COLUNA_PALAVRA +
-                " FROM " + CamposPalavra.NOME_TABELA +
+        String query = "SELECT * FROM " + CamposPalavra.NOME_TABELA +
                 " WHERE " + CamposPalavra.COLUNA_ID + " >= " + String.valueOf(id1) +
                 " AND " + CamposPalavra.COLUNA_ID + " <= " + String.valueOf(id2) +
                 " ORDER BY random()";
@@ -149,6 +148,9 @@ public class BancoPalavras extends SQLiteOpenHelper {
             do {
                 Palavra word = new Palavra();
                 word.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
+                word.setTraducao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_TRADUCAO)));
+                word.setSinonimo(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_SINONIMO)));
+                word.setDescricao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_DESCRICAO)));
                 palavra.add(word);
             } while (cursor.moveToNext());
         }

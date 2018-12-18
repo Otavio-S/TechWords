@@ -7,7 +7,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <EditText
-        android:id="@+id/txtPalavra5"
+        android:id="@+id/txtPalavra2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -20,14 +20,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtPalavra4"
+        android:id="@+id/txtPalavra5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Escreva a quarta palavra"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/txtPalavra5"
+        app:layout_constraintEnd_toEndOf="@+id/txtPalavra2"
         app:layout_constraintStart_toStartOf="@+id/audio5"
         app:layout_constraintTop_toBottomOf="@+id/audio4" />
 
@@ -38,7 +38,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPalavra4"
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra5"
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <ImageView
@@ -48,11 +48,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPalavra3"
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra5"
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <EditText
-        android:id="@+id/txtPalavra2"
+        android:id="@+id/txtPalavra1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/audio2" />
 
     <EditText
-        android:id="@+id/txtPalavra3"
+        android:id="@+id/txtPalavra5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
@@ -73,7 +73,7 @@
         android:ems="10"
         android:hint="Escreva a terceira palavra"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/txtPalavra4"
+        app:layout_constraintEnd_toEndOf="@+id/txtPalavra5"
         app:layout_constraintStart_toStartOf="@+id/audio4"
         app:layout_constraintTop_toBottomOf="@+id/audio3" />
 
@@ -85,7 +85,7 @@
         android:ems="10"
         android:hint="Escreva a primeira palavra"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/txtPalavra3"
+        app:layout_constraintEnd_toEndOf="@+id/txtPalavra5"
         app:layout_constraintStart_toStartOf="@+id/audio2"
         app:layout_constraintTop_toBottomOf="@+id/audio1" />
 
@@ -106,7 +106,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPalavra2"
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra1"
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <ImageView
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:text="Verificar"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtPalavra5"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtPalavra2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPalavra5" />
+        app:layout_constraintStart_toEndOf="@+id/txtPalavra2" />
 </android.support.constraint.ConstraintLayout>

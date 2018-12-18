@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Escreva a palavra que melhor represente a descrição apresentada." />
+
+            <TextView
+                android:id="@+id/txtDescricao1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/txtPalavra1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Escreva a primeira palavra"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="281dp" />
+
+            <TextView
+                android:id="@+id/txtDescricao2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/txtPalavra2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Escreva a segunda palavra"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="386dp" />
+
+            <TextView
+                android:id="@+id/txtDescricao3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/txtPalavra3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Escreva a terceira palavra"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="193dp" />
+
+            <TextView
+                android:id="@+id/txtDescricao4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/txtPalavra4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Escreva a quarta palavra"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="477dp" />
+
+            <TextView
+                android:id="@+id/txtDescricao5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/txtPalavra5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Escreva a quinta palavra"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="98dp" />
+
+            <Button
+                android:id="@+id/btnVerificar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verificar"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

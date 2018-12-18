@@ -138,7 +138,7 @@ public class TelaPalavra extends Activity {
                 bancoStatus.aumentaStatus(s);
             } else {
                 //CHAMA A TELA DESAFIO
-                Intent intent = new Intent(TelaPalavra.this, TelaDesafio1.class);
+                Intent intent = new Intent(TelaPalavra.this, TelaDesafio2.class);
                 intent.putExtra("id", status);
                 startActivity(intent);
             }
