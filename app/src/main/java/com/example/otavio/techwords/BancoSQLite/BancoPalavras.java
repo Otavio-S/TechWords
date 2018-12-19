@@ -147,6 +147,7 @@ public class BancoPalavras extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Palavra word = new Palavra();
+                word.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
                 word.setPalavra(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_PALAVRA)));
                 word.setTraducao(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_TRADUCAO)));
                 word.setSinonimo(cursor.getString(cursor.getColumnIndex(CamposPalavra.COLUNA_SINONIMO)));

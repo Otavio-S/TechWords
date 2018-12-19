@@ -18,6 +18,7 @@ import com.example.otavio.techwords.Model.Status;
 import com.example.otavio.techwords.R;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class TelaPalavra extends Activity {
 
@@ -138,12 +139,42 @@ public class TelaPalavra extends Activity {
                 bancoStatus.aumentaStatus(s);
             } else {
                 //CHAMA A TELA DESAFIO
-                Intent intent = new Intent(TelaPalavra.this, TelaDesafio2.class);
+
+                Random generator = new Random();
+                int number = generator.nextInt(3) + 1;
+                // The '3' is the number of activities
+
+                Class activity = null;
+
+                // Here, we are checking to see what the output of the random was
+                switch (number) {
+                    case 1:
+                        // E.g., if the output is 1, the activity we will open is ActivityOne.class
+                        activity = TelaDesafio1.class;
+                        break;
+                    case 2:
+                        activity = TelaDesafio2.class;
+                        break;
+                    case 3:
+                        activity = TelaDesafio3.class;
+                        break;
+                }
+                // We use intents to start activities
+                Intent intent = new Intent(TelaPalavra.this, activity);
+                intent.putExtra("disciplina", disciplina);
                 intent.putExtra("id", status);
                 startActivity(intent);
             }
         }
     };
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        recreate();
+        //When BACK BUTTON is pressed, the activity on the stack is restarted
+        //Do what you want on the refresh procedure here
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

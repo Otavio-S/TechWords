@@ -9,7 +9,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.otavio.techwords.BancoSQLite.BancoPalavras;
+import com.example.otavio.techwords.BancoSQLite.BancoStatus;
 import com.example.otavio.techwords.Model.Palavra;
+import com.example.otavio.techwords.Model.Status;
 import com.example.otavio.techwords.R;
 
 import java.util.List;
@@ -61,7 +63,21 @@ public class TelaDesafio2 extends AppCompatActivity {
             toast.show();
 
             if (resultado >= 3) {
-                recreate();
+                Intent intent = getIntent();
+                int disciplina = intent.getIntExtra("disciplina", 0);
+                int i = intent.getIntExtra("id", 0);
+                i = i+1;
+
+                BancoStatus bancoStatus = new BancoStatus(getApplicationContext());
+
+                Status s = new Status();
+                s.setStatus(i);
+                s.setDisciplina(disciplina);
+
+                bancoStatus.aumentaStatus(s);
+
+                finish();
+
                 finish();
             }
         }
