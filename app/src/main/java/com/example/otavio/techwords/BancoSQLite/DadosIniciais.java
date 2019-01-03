@@ -1,12 +1,13 @@
 package com.example.otavio.techwords.BancoSQLite;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.example.otavio.techwords.Model.Disciplina;
 import com.example.otavio.techwords.Model.Palavra;
 import com.example.otavio.techwords.Model.Status;
 
-public class DadosIniciais {
+public class DadosIniciais extends Activity {
 
     private BancoPalavras crud;
     private BancoDisciplinas banco;

@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Controller.ControllerInicial.TelaInicial">
+        <activity
+            android:name=".Controller.ControllerInicial.TelaInicial"
+            android:theme="@style/TechWords">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,7 +22,8 @@
         <activity
             android:name=".Controller.ControllerInicial.TelaDisciplinas"
             android:label="@string/title_activity_tela_disciplinas"
-            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial"
+            android:theme="@style/TechWords">
             <meta-data
                 android:name="android.support.DISCIPLINAS_ACTIVITY"
                 android:value=".Controller.TelaInicial" />
@@ -29,7 +32,8 @@
         <activity
             android:name=".Controller.ControllerInicial.TelaInstrucoes"
             android:label="@string/title_activity_tela_instrucoes"
-            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial"
+            android:theme="@style/TechWords">
             <meta-data
                 android:name="android.support.INSTRUCOES_ACTIVITY"
                 android:value=".Controller.TelaInicial" />
@@ -38,7 +42,8 @@
         <activity
             android:name=".Controller.ControllerDesafios.TelaPalavra"
             android:label="@string/title_activity_tela_palavra"
-            android:parentActivityName=".Controller.ControllerDesafios.TelaPalavra">
+            android:parentActivityName=".Controller.ControllerDesafios.TelaPalavra"
+            android:theme="@style/TechWords">
             <meta-data
                 android:name="android.support.PALAVRA_ACTIVITY"
                 android:value=".Controller.TelaPalavra" />
@@ -47,16 +52,28 @@
         <activity
             android:name=".TestCRUD"
             android:label="@string/teste"
-            android:parentActivityName=".Controller.ControllerInicial.TelaInicial">
+            android:parentActivityName=".Controller.ControllerInicial.TelaInicial"
+            android:theme="@style/TechWords">
             <meta-data
                 android:name="android.support.Teste"
                 android:value=".Controller.TelaInicial" />
         </activity>
 
-        <activity android:name=".BancoSQLite.DadosIniciais" />
-        <activity android:name=".Controller.ControllerDesafios.TelaDesafio3" />
-        <activity android:name=".Controller.ControllerDesafios.TelaDesafio1" />
-        <activity android:name=".Controller.ControllerDesafios.TelaDesafio2" />
+        <activity
+            android:name=".BancoSQLite.DadosIniciais"
+            android:theme="@style/TechWords" />
+
+        <activity
+            android:name=".Controller.ControllerDesafios.TelaDesafio1"
+            android:theme="@style/TechWords" />
+
+        <activity
+            android:name=".Controller.ControllerDesafios.TelaDesafio2"
+            android:theme="@style/TechWords" />
+
+        <activity
+            android:name=".Controller.ControllerDesafios.TelaDesafio3"
+            android:theme="@style/TechWords" />
 
     </application>
 
