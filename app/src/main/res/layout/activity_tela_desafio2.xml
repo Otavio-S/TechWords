@@ -25,14 +25,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Escreva a palavra que melhor represente a descrição apresentada." />
+                android:text="Escreva a palavra que melhor represente a descrição apresentada."
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtDescricao1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPalavra1"
@@ -48,8 +50,9 @@
                 android:id="@+id/txtDescricao2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPalavra2"
@@ -65,8 +68,9 @@
                 android:id="@+id/txtDescricao3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPalavra3"
@@ -82,8 +86,9 @@
                 android:id="@+id/txtDescricao4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPalavra4"
@@ -99,8 +104,9 @@
                 android:id="@+id/txtDescricao5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPalavra5"

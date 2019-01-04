@@ -57,16 +57,16 @@ public class TelaDesafio2 extends AppCompatActivity {
                 resultado += 1;
             }
 
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Você acertou: " + resultado + " palavras.",
-                    Toast.LENGTH_LONG);
-            toast.show();
-
             if (resultado >= 3) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Você acertou: " + resultado + " palavras.",
+                        Toast.LENGTH_LONG);
+                toast.show();
+
                 Intent intent = getIntent();
                 int disciplina = intent.getIntExtra("disciplina", 0);
                 int i = intent.getIntExtra("id", 0);
-                i = i+1;
+                i = i + 1;
 
                 BancoStatus bancoStatus = new BancoStatus(getApplicationContext());
 
@@ -77,6 +77,24 @@ public class TelaDesafio2 extends AppCompatActivity {
                 bancoStatus.aumentaStatus(s);
 
                 finish();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Você acertou: " + resultado + " palavras. Tente novamente!",
+                        Toast.LENGTH_LONG);
+                toast.show();
+
+                Intent intent = getIntent();
+                int disciplina = intent.getIntExtra("disciplina", 0);
+                int i = intent.getIntExtra("id", 0);
+                i = i - 4;
+
+                BancoStatus bancoStatus = new BancoStatus(getApplicationContext());
+
+                Status s = new Status();
+                s.setStatus(i);
+                s.setDisciplina(disciplina);
+
+                bancoStatus.aumentaStatus(s);
 
                 finish();
             }

@@ -29,6 +29,7 @@ public class TelaPalavra extends Activity {
     private ImageView imgView;
     private TextView txtPalavra;
     private TextView txtDescricao;
+    private TextView txtDescricao2;
     private TextView txtSinonimo;
     private TextView txtTraducao;
     private BancoPalavras bancoPalavras;
@@ -49,7 +50,8 @@ public class TelaPalavra extends Activity {
         public void onClick(View v) {
             String traducao = bancoPalavras.carregaDadosPorID(status).get(0).getTraducao();
             txtTraducao.setVisibility(View.VISIBLE);
-            txtTraducao.setText(traducao);
+            String trad = "Translation: " + traducao;
+            txtTraducao.setText(trad);
         }
     };
 
@@ -83,7 +85,12 @@ public class TelaPalavra extends Activity {
                 sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
-                txtSinonimo.setText(sinonimo);
+                if (!sinonimo.equals(" ")) {
+                    String sin = "Synonym: " + sinonimo;
+                    txtSinonimo.setText(sin);
+                } else {
+                    txtSinonimo.setVisibility(View.INVISIBLE);
+                }
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -91,8 +98,14 @@ public class TelaPalavra extends Activity {
                     Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
                     imgView.setVisibility(View.VISIBLE);
                     imgView.setImageDrawable(res);
+                    txtDescricao.setVisibility(View.VISIBLE);
+                    txtDescricao.setText(descricao);
+                    txtDescricao2.setVisibility(View.GONE);
                 } catch (Exception e) {
-                    imgView.setVisibility(View.INVISIBLE);
+                    imgView.setVisibility(View.GONE);
+                    txtDescricao.setVisibility(View.GONE);
+                    txtDescricao2.setVisibility(View.VISIBLE);
+                    txtDescricao2.setText(descricao);
                 }
 
                 //ATUALIZA O STATUS DA DISCIPLINA
@@ -120,7 +133,12 @@ public class TelaPalavra extends Activity {
                 sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
                 txtPalavra.setText(palavra);
                 txtDescricao.setText(descricao);
-                txtSinonimo.setText(sinonimo);
+                if (!sinonimo.equals(" ")) {
+                    String sin = "Synonym: " + sinonimo;
+                    txtSinonimo.setText(sin);
+                } else {
+                    txtSinonimo.setVisibility(View.INVISIBLE);
+                }
 
                 try {
                     String imagem = "@drawable/i" + status;
@@ -128,8 +146,14 @@ public class TelaPalavra extends Activity {
                     Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
                     imgView.setVisibility(View.VISIBLE);
                     imgView.setImageDrawable(res);
+                    txtDescricao.setVisibility(View.VISIBLE);
+                    txtDescricao.setText(descricao);
+                    txtDescricao2.setVisibility(View.GONE);
                 } catch (Exception e) {
-                    imgView.setVisibility(View.INVISIBLE);
+                    imgView.setVisibility(View.GONE);
+                    txtDescricao.setVisibility(View.GONE);
+                    txtDescricao2.setVisibility(View.VISIBLE);
+                    txtDescricao2.setText(descricao);
                 }
 
                 //ATUALIZA O STATUS DA DISCIPLINA
@@ -180,7 +204,8 @@ public class TelaPalavra extends Activity {
         this.disciplina += 1;
 
         txtPalavra = findViewById(R.id.txtPalavra);
-        txtDescricao = findViewById(R.id.txtDescricao);
+        txtDescricao = findViewById(R.id.txtDescricaoX);
+        txtDescricao2 = findViewById(R.id.txtDescricaoY);
         txtSinonimo = findViewById(R.id.txtSinonimo);
         txtTraducao = findViewById(R.id.txtTraducao);
 
@@ -191,9 +216,12 @@ public class TelaPalavra extends Activity {
         descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
         sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
         txtPalavra.setText(palavra);
-        txtPalavra.setTextSize(50);
-        txtDescricao.setText(descricao);
-        txtSinonimo.setText(sinonimo);
+        if (!sinonimo.equals(" ")) {
+            String sin = "Synonym: " + sinonimo;
+            txtSinonimo.setText(sin);
+        } else {
+            txtSinonimo.setVisibility(View.INVISIBLE);
+        }
         txtTraducao.setVisibility(View.INVISIBLE);
 
         ImageButton btnVoltar = findViewById(R.id.btnVoltar);
@@ -219,8 +247,14 @@ public class TelaPalavra extends Activity {
             Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
             imgView.setVisibility(View.VISIBLE);
             imgView.setImageDrawable(res);
+            txtDescricao.setVisibility(View.VISIBLE);
+            txtDescricao.setText(descricao);
+            txtDescricao2.setVisibility(View.GONE);
         } catch (Exception e) {
-            imgView.setVisibility(View.INVISIBLE);
+            imgView.setVisibility(View.GONE);
+            txtDescricao.setVisibility(View.GONE);
+            txtDescricao2.setVisibility(View.VISIBLE);
+            txtDescricao2.setText(descricao);
         }
 
     }

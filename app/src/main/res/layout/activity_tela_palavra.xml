@@ -8,134 +8,147 @@
 
     <TextView
         android:id="@+id/txtPalavra"
-        android:layout_width="183dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnTraduzir"
-        app:layout_constraintEnd_toStartOf="@+id/btnFalar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnTraduzir" />
+        app:layout_constraintTop_toBottomOf="@+id/btnVoltar" />
 
     <Button
         android:id="@+id/btnAnterior"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:text="Previous"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txtSinonimo" />
+        app:layout_constraintEnd_toStartOf="@+id/btnProximo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnProximo"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/txtDescricao"
-        android:layout_width="181dp"
-        android:layout_height="283dp"
-        android:layout_marginBottom="66dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:id="@+id/txtDescricaoX"
+        android:layout_width="208dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/txtSinonimo"
-        app:layout_constraintEnd_toStartOf="@+id/txtTraducao"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtTraducao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtPalavra"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra"
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageButton
         android:id="@+id/btnFalar"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:src="@android:drawable/presence_audio_busy"
-        app:layout_constraintBottom_toBottomOf="@+id/btnTraduzir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPalavra"
-        app:layout_constraintTop_toTopOf="@+id/btnTraduzir" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnTraduzir"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
         android:src="@android:drawable/ic_menu_sort_alphabetically"
         app:layout_constraintEnd_toStartOf="@+id/btnFalar"
-        app:layout_constraintStart_toEndOf="@+id/txtPalavra"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
+        android:layout_width="133dp"
         android:layout_height="125dp"
-        android:layout_marginBottom="14dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="36dp"
         android:src="@android:drawable/btn_star"
-        app:layout_constraintBottom_toTopOf="@+id/txtTraducao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/txtDescricao"
-        app:layout_constraintTop_toBottomOf="@+id/btnFalar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/txtDescricaoX"
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra" />
 
     <TextView
         android:id="@+id/txtSinonimo"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="56dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/btnProximo"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtTraducao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTraducao"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btnVoltar"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="13dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="TODO"
         android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintBottom_toTopOf="@+id/txtPalavra"
-        app:layout_constraintEnd_toEndOf="@+id/btnAnterior"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtTraducao"
-        android:layout_width="0dp"
-        android:layout_height="71dp"
-        android:layout_marginBottom="140dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAnterior"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtDescricao" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDescricaoY"
+        android:layout_width="351dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtTraducao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPalavra"
+        app:layout_constraintVertical_bias="0.043" />
 
 </android.support.constraint.ConstraintLayout>

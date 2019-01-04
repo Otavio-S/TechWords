@@ -6,45 +6,57 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="25dp">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Instructions"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/btnVoltar" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="14dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginStart="39dp"
-        android:text="@string/instruction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/btnVoltar"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="84dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btnVoltar"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                tools:layout_editor_absoluteX="245dp"
+                tools:layout_editor_absoluteY="177dp"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Instructions"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="71dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="1488dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/instruction"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="113dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -21,18 +21,24 @@
         android:id="@+id/btnP1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="44dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/btnS1"
+        app:layout_constraintEnd_toStartOf="@+id/btnS1"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnS1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/btnP2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnS2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnP1"
         app:layout_constraintTop_toBottomOf="@+id/btnP1" />
 
@@ -40,8 +46,11 @@
         android:id="@+id/btnP3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnS3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnP2"
         app:layout_constraintTop_toBottomOf="@+id/btnP2" />
 
@@ -49,8 +58,11 @@
         android:id="@+id/btnP4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnS4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnP3"
         app:layout_constraintTop_toBottomOf="@+id/btnP3" />
 
@@ -58,8 +70,11 @@
         android:id="@+id/btnP5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnS5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnP4"
         app:layout_constraintTop_toBottomOf="@+id/btnP4" />
 
@@ -67,8 +82,8 @@
         android:id="@+id/btnS1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="58dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginTop="44dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -77,7 +92,7 @@
         android:id="@+id/btnS2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/btnS1"
         app:layout_constraintTop_toBottomOf="@+id/btnS1" />
@@ -86,7 +101,7 @@
         android:id="@+id/btnS3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/btnS2"
         app:layout_constraintTop_toBottomOf="@+id/btnS2" />
@@ -95,7 +110,7 @@
         android:id="@+id/btnS4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/btnS3"
         app:layout_constraintTop_toBottomOf="@+id/btnS3" />
@@ -104,18 +119,22 @@
         android:id="@+id/btnS5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/btnS4"
         app:layout_constraintTop_toBottomOf="@+id/btnS4" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="331dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="32dp"
         android:text="Ligue as palavras com seus respectivos sinônimos"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

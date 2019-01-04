@@ -32,6 +32,6 @@
         no botão check para checar se conseguiu acertar pelo menos 60% do teste para
         continuar. Erros e acertos serão mostrados nesse momento. Se você tiver a média
         necessária, poderá começar a aprender novas palavras. Caso contrário, será
-        levado de volta às palavras que acabaram de serem vistas para revisão.</string>
+        levado de volta às palavras que acabaram de serem vistas para revisão. Bom jogo e bons estudos! </string>
     <string name="title_activity_tela_palavra">TelaPalavra</string>
 </resources>
