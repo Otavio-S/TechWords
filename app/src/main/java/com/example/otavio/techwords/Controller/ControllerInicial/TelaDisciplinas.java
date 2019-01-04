@@ -1,16 +1,18 @@
 package com.example.otavio.techwords.Controller.ControllerInicial;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+import com.example.otavio.techwords.Adapter.DisciplinasAdapter;
 import com.example.otavio.techwords.BancoSQLite.BancoDisciplinas;
-import com.example.otavio.techwords.Controller.ControllerDesafios.TelaPalavra;
+import com.example.otavio.techwords.Model.Disciplina;
 import com.example.otavio.techwords.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TelaDisciplinas extends Activity {
 
@@ -18,31 +20,26 @@ public class TelaDisciplinas extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_disciplinas);
 
-        ListView listview = findViewById(R.id.listVDisciplinas);
+        List<Disciplina> disciplinaList = new ArrayList<>();
+        BancoDisciplinas disciplinas = new BancoDisciplinas(getApplicationContext());
+        int i;
+        int quant = disciplinas.carregaDados().size();
 
-        BancoDisciplinas banco = new BancoDisciplinas(this);
-        int x = banco.carregaDados().size();
-
-        String[] dados = new String[x];
-
-        for (int a = 0; a < x; a++) {
-            dados[a] = banco.carregaDados().get(a).getDisciplina();
+        for (i = 0; i < quant; i++) {
+            disciplinaList.add(disciplinas.carregaDados().get(i));
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, dados);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        DisciplinasAdapter viewAdapter = new DisciplinasAdapter(getApplicationContext(), disciplinaList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(viewAdapter);
 
-        listview.setAdapter(adapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(TelaDisciplinas.this, TelaPalavra.class);
-                intent.putExtra("item", position);
-                startActivity(intent);
-            }
-        });
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
-        banco.close();
     }
 
 }

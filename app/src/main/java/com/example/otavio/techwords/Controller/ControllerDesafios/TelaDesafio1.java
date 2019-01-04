@@ -114,7 +114,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra1, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }
@@ -130,7 +130,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra2, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }
@@ -146,7 +146,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra3, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }
@@ -162,7 +162,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra4, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }
@@ -178,7 +178,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra5, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }

@@ -65,7 +65,7 @@ public class TelaPalavra extends Activity {
                 public void onInit(int i) {
                     if (i == TextToSpeech.SUCCESS) {
                         toSpeech.setLanguage(Locale.US);
-                        toSpeech.setPitch((float) 0.7);
+                        toSpeech.setPitch((float) 0.5);
                         toSpeech.speak(palavra, TextToSpeech.QUEUE_FLUSH, null, null);
                     }
                 }
