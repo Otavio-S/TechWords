@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.otavio.techwords.BancoSQLite.BancoDisciplinas;
 import com.example.otavio.techwords.BancoSQLite.BancoPalavras;
 import com.example.otavio.techwords.BancoSQLite.BancoStatus;
 import com.example.otavio.techwords.Model.Status;
@@ -124,65 +126,76 @@ public class TelaPalavra extends Activity {
         public void onClick(View v) {
             txtTraducao.setVisibility(View.INVISIBLE);
 
-            //CARREGA PRÒXIMA PALAVRA
-            if (count != 4) {
-                count += 1;
-                status = status + 1;
-                palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
-                descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
-                sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
-                txtPalavra.setText(palavra);
-                txtDescricao.setText(descricao);
-                if (!sinonimo.equals(" ")) {
-                    String sin = "Synonym: " + sinonimo;
-                    txtSinonimo.setText(sin);
-                } else {
-                    txtSinonimo.setVisibility(View.INVISIBLE);
-                }
+            String dis = bancoPalavras.carregaDadosPorID((status + 1)).get(0).getDisciplina();
 
-                try {
-                    String imagem = "@drawable/i" + status;
-                    int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
-                    Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
-                    imgView.setVisibility(View.VISIBLE);
-                    imgView.setImageDrawable(res);
-                    txtDescricao.setVisibility(View.VISIBLE);
+            if (dis.equals(String.valueOf(disciplina))) {
+                //CARREGA PRÒXIMA PALAVRA
+                if (count != 4) {
+                    count += 1;
+                    status = status + 1;
+
+                    palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
+                    descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
+                    sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
+                    txtPalavra.setText(palavra);
                     txtDescricao.setText(descricao);
-                    txtDescricao2.setVisibility(View.GONE);
-                } catch (Exception e) {
-                    imgView.setVisibility(View.GONE);
-                    txtDescricao.setVisibility(View.GONE);
-                    txtDescricao2.setVisibility(View.VISIBLE);
-                    txtDescricao2.setText(descricao);
-                }
+                    if (!sinonimo.equals(" ")) {
+                        String sin = "Synonym: " + sinonimo;
+                        txtSinonimo.setText(sin);
+                    } else {
+                        txtSinonimo.setVisibility(View.INVISIBLE);
+                    }
 
-                //ATUALIZA O STATUS DA DISCIPLINA
-                Status s = new Status();
-                s.setStatus(status);
-                s.setDisciplina(disciplina);
-                bancoStatus.aumentaStatus(s);
+                    try {
+                        String imagem = "@drawable/i" + status;
+                        int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
+                        Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
+                        imgView.setVisibility(View.VISIBLE);
+                        imgView.setImageDrawable(res);
+                        txtDescricao.setVisibility(View.VISIBLE);
+                        txtDescricao.setText(descricao);
+                        txtDescricao2.setVisibility(View.GONE);
+                    } catch (Exception e) {
+                        imgView.setVisibility(View.GONE);
+                        txtDescricao.setVisibility(View.GONE);
+                        txtDescricao2.setVisibility(View.VISIBLE);
+                        txtDescricao2.setText(descricao);
+                    }
+
+                    //ATUALIZA O STATUS DA DISCIPLINA
+                    Status s = new Status();
+                    s.setStatus(status);
+                    s.setDisciplina(disciplina);
+                    bancoStatus.aumentaStatus(s);
+
+                } else {
+                    //CHAMA UMA DAS TELAS DE DESAFIO
+                    Random generator = new Random();
+                    int number = generator.nextInt(3) + 1;
+
+                    Class activity = null;
+
+                    //switch (number) {
+                    //    case 1:
+                    //        activity = TelaDesafio1.class;
+                    //        break;
+                    //    case 2:
+                    //        activity = TelaDesafio2.class;
+                    //        break;
+                    //    case 3:
+                    activity = TelaDesafio3.class;
+                    //        break;
+                    //}
+                    Intent intent = new Intent(TelaPalavra.this, activity);
+                    intent.putExtra("disciplina", disciplina);
+                    intent.putExtra("id", status);
+                    startActivity(intent);
+                }
             } else {
-                //CHAMA UMA DAS TELAS DE DESAFIO
-                Random generator = new Random();
-                int number = generator.nextInt(3) + 1;
-
-                Class activity = null;
-
-                switch (number) {
-                    case 1:
-                        activity = TelaDesafio1.class;
-                        break;
-                    case 2:
-                        activity = TelaDesafio2.class;
-                        break;
-                    case 3:
-                        activity = TelaDesafio3.class;
-                        break;
-                }
-                Intent intent = new Intent(TelaPalavra.this, activity);
-                intent.putExtra("disciplina", disciplina);
-                intent.putExtra("id", status);
-                startActivity(intent);
+                Intent intentC = new Intent(TelaPalavra.this, TelaConclusao.class);
+                intentC.putExtra("disciplina", disciplina);
+                startActivity(intentC);
+                finish();
             }
         }
     };
@@ -215,46 +228,68 @@ public class TelaPalavra extends Activity {
         palavra = bancoPalavras.carregaDadosPorID(status).get(0).getPalavra();
         descricao = bancoPalavras.carregaDadosPorID(status).get(0).getDescricao();
         sinonimo = bancoPalavras.carregaDadosPorID(status).get(0).getSinonimo();
-        txtPalavra.setText(palavra);
-        if (!sinonimo.equals(" ")) {
-            String sin = "Synonym: " + sinonimo;
-            txtSinonimo.setText(sin);
-        } else {
-            txtSinonimo.setVisibility(View.INVISIBLE);
+
+        BancoDisciplinas bancoDisciplinas = new BancoDisciplinas(getApplicationContext());
+
+        int conc = 0;
+        int n = bancoDisciplinas.carregaDados().size();
+        for (int i = 0; i < n; i++) {
+            if (bancoDisciplinas.carregaDados().get(i).getId() == disciplina) {
+                conc = bancoDisciplinas.carregaDados().get(i).getDisciplinasConcluidas();
+                break;
+            }
         }
-        txtTraducao.setVisibility(View.INVISIBLE);
 
-        ImageButton btnVoltar = findViewById(R.id.btnVoltar);
-        btnVoltar.setOnClickListener(btnVoltarOnClickListener);
+        if (conc != 1) {
 
-        ImageButton btnTraduzir = findViewById(R.id.btnTraduzir);
-        btnTraduzir.setOnClickListener(btnTraduzirOnClickListener);
+            txtPalavra.setText(palavra);
+            if (!sinonimo.equals(" ")) {
+                String sin = "Synonym: " + sinonimo;
+                txtSinonimo.setText(sin);
+            } else {
+                txtSinonimo.setVisibility(View.INVISIBLE);
+            }
+            txtTraducao.setVisibility(View.INVISIBLE);
 
-        ImageButton btnFalar = findViewById(R.id.btnFalar);
-        btnFalar.setOnClickListener(btnFalarOnClickListener);
+            ImageButton btnVoltar = findViewById(R.id.btnVoltar);
+            btnVoltar.setOnClickListener(btnVoltarOnClickListener);
 
-        Button btnAnterior = findViewById(R.id.btnAnterior);
-        btnAnterior.setOnClickListener(btnAnteriorOnClickListener);
+            ImageButton btnTraduzir = findViewById(R.id.btnTraduzir);
+            btnTraduzir.setOnClickListener(btnTraduzirOnClickListener);
 
-        Button btnProximo = findViewById(R.id.btnProximo);
-        btnProximo.setOnClickListener(btnProximoOnClickListener);
+            ImageButton btnFalar = findViewById(R.id.btnFalar);
+            btnFalar.setOnClickListener(btnFalarOnClickListener);
 
-        imgView = findViewById(R.id.imageView);
+            Button btnAnterior = findViewById(R.id.btnAnterior);
+            btnAnterior.setOnClickListener(btnAnteriorOnClickListener);
 
-        try {
-            String imagem = "@drawable/i" + this.status;
-            int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
-            Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
-            imgView.setVisibility(View.VISIBLE);
-            imgView.setImageDrawable(res);
-            txtDescricao.setVisibility(View.VISIBLE);
-            txtDescricao.setText(descricao);
-            txtDescricao2.setVisibility(View.GONE);
-        } catch (Exception e) {
-            imgView.setVisibility(View.GONE);
-            txtDescricao.setVisibility(View.GONE);
-            txtDescricao2.setVisibility(View.VISIBLE);
-            txtDescricao2.setText(descricao);
+            Button btnProximo = findViewById(R.id.btnProximo);
+            btnProximo.setOnClickListener(btnProximoOnClickListener);
+
+            imgView = findViewById(R.id.imageView);
+
+            try {
+                String imagem = "@drawable/i" + this.status;
+                int imageResource = getResources().getIdentifier(imagem, null, getPackageName());
+                Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
+                imgView.setVisibility(View.VISIBLE);
+                imgView.setImageDrawable(res);
+                txtDescricao.setVisibility(View.VISIBLE);
+                txtDescricao.setText(descricao);
+                txtDescricao2.setVisibility(View.GONE);
+            } catch (Exception e) {
+                imgView.setVisibility(View.GONE);
+                txtDescricao.setVisibility(View.GONE);
+                txtDescricao2.setVisibility(View.VISIBLE);
+                txtDescricao2.setText(descricao);
+            }
+
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Você já concluiu essa disciplina!",
+                    Toast.LENGTH_LONG);
+            toast.show();
+            finish();
         }
 
     }

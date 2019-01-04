@@ -16,7 +16,7 @@ import java.util.List;
 public class BancoDisciplinas extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "TechWordsDisciplinas.db";
-    private static final int VERSAO_BANCO = 2;
+    private static final int VERSAO_BANCO = 3;
 
     public BancoDisciplinas(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -26,7 +26,8 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + CamposDisciplina.NOME_TABELA + " (" +
                 CamposDisciplina.COLUNA_ID + " TEXT," +
-                CamposDisciplina.COLUNA_DISCIPLINA + " TEXT" + " )";
+                CamposDisciplina.COLUNA_DISCIPLINA + " TEXT," +
+                CamposDisciplina.COLUNA_DISCIPLINAS_CONCLUIDAS + " TEXT" + " )";
         db.execSQL(sql);
     }
 
@@ -52,6 +53,7 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
 
         valores.put(CamposDisciplina.COLUNA_ID, id);
         valores.put(CamposDisciplina.COLUNA_DISCIPLINA, disciplina.getDisciplina());
+        valores.put(CamposDisciplina.COLUNA_DISCIPLINAS_CONCLUIDAS, disciplina.getDisciplinasConcluidas());
 
         resultado = db.insert(
                 CamposDisciplina.NOME_TABELA,
@@ -90,6 +92,7 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
                 Disciplina disciplina = new Disciplina();
                 disciplina.setId(cursor.getInt(cursor.getColumnIndex(CamposDisciplina.COLUNA_ID)));
                 disciplina.setDisciplina(cursor.getString(cursor.getColumnIndex(CamposDisciplina.COLUNA_DISCIPLINA)));
+                disciplina.setDisciplinasConcluidas(cursor.getInt(cursor.getColumnIndex(CamposDisciplina.COLUNA_DISCIPLINAS_CONCLUIDAS)));
                 disciplinas.add(disciplina);
             } while (cursor.moveToNext());
         }
@@ -97,14 +100,14 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
         return disciplinas;
     }
 
-    public String alteraRegistro(Disciplina disciplina) {
+    public void alteraRegistro(int id) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues valores = new ContentValues();
-        valores.put(CamposDisciplina.COLUNA_DISCIPLINA, disciplina.getDisciplina());
+        valores.put(CamposDisciplina.COLUNA_DISCIPLINAS_CONCLUIDAS, 1);
 
         String selecao = CamposDisciplina.COLUNA_ID + " LIKE ?";
-        String[] selecaoArgs = {String.valueOf(disciplina.getId())};
+        String[] selecaoArgs = {String.valueOf(id)};
 
         int count = db.update(
                 CamposDisciplina.NOME_TABELA,
@@ -112,12 +115,6 @@ public class BancoDisciplinas extends SQLiteOpenHelper {
                 selecao,
                 selecaoArgs
         );
-
-        if (count == -1)
-            return "Erro ao atualizar registro";
-        else {
-            return "Registro atualizado com sucesso";
-        }
     }
 
     public String deletaRegistro(int id) {

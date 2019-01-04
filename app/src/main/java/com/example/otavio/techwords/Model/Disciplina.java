@@ -4,6 +4,7 @@ public class Disciplina {
 
     private int id;
     private String disciplina;
+    private int disciplinasConcluidas;
 
     public Disciplina() {
     }
@@ -29,4 +30,11 @@ public class Disciplina {
         this.disciplina = disciplina;
     }
 
+    public int getDisciplinasConcluidas() {
+        return disciplinasConcluidas;
+    }
+
+    public void setDisciplinasConcluidas(int disciplinasConcluidas) {
+        this.disciplinasConcluidas = disciplinasConcluidas;
+    }
 }

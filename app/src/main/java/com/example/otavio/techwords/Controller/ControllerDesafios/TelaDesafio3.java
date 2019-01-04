@@ -40,7 +40,6 @@ public class TelaDesafio3 extends AppCompatActivity {
 
     private int temp;
 
-    private Button btnVerificar;
     private View.OnClickListener btnVerificarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -70,7 +69,7 @@ public class TelaDesafio3 extends AppCompatActivity {
             int idS5 = btnSinonimo5.getId();
 
 
-            if (idP1 == idS1 && corP1 == corS1) {
+            if ((idP1 == idS1) && (corP1 == corS1)) {
                 pontos += 1;
             } else if ((idP1 == idS2) && (corP1 == corS2)) {
                 pontos += 1;
@@ -82,7 +81,7 @@ public class TelaDesafio3 extends AppCompatActivity {
                 pontos += 1;
             }
 
-            if (idP2 == idS1 && corP2 == corS1) {
+            if ((idP2 == idS1) && (corP2 == corS1)) {
                 pontos += 1;
             } else if ((idP2 == idS2) && (corP2 == corS2)) {
                 pontos += 1;
@@ -94,7 +93,7 @@ public class TelaDesafio3 extends AppCompatActivity {
                 pontos += 1;
             }
 
-            if (idP3 == idS1 && corP3 == corS1) {
+            if ((idP3 == idS1) && (corP3 == corS1)) {
                 pontos += 1;
             } else if ((idP3 == idS2) && (corP3 == corS2)) {
                 pontos += 1;
@@ -106,7 +105,7 @@ public class TelaDesafio3 extends AppCompatActivity {
                 pontos += 1;
             }
 
-            if (idP4 == idS1 && corP4 == corS1) {
+            if ((idP4 == idS1) && (corP4 == corS1)) {
                 pontos += 1;
             } else if ((idP4 == idS2) && (corP4 == corS2)) {
                 pontos += 1;
@@ -118,7 +117,7 @@ public class TelaDesafio3 extends AppCompatActivity {
                 pontos += 1;
             }
 
-            if (idP5 == idS1 && corP5 == corS1) {
+            if ((idP5 == idS1) && (corP5 == corS1)) {
                 pontos += 1;
             } else if ((idP5 == idS2) && (corP5 == corS2)) {
                 pontos += 1;
@@ -152,7 +151,7 @@ public class TelaDesafio3 extends AppCompatActivity {
                 finish();
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Você acertou: " + pontos + " palavras. Tente novamente!",
+                        "Você acertou: " + pontos + " palavras. \n Tente novamente!",
                         Toast.LENGTH_LONG);
                 toast.show();
 
@@ -174,6 +173,14 @@ public class TelaDesafio3 extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Termine o teste primeiro.",
+                Toast.LENGTH_SHORT);
+        toast.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,7 +207,7 @@ public class TelaDesafio3 extends AppCompatActivity {
         this.inserirPalavras();
         this.inserirSinonimos();
 
-        btnVerificar = findViewById(R.id.btnVerificar3);
+        Button btnVerificar = findViewById(R.id.btnVerificar3);
         btnVerificar.setOnClickListener(btnVerificarOnClick);
 
     }

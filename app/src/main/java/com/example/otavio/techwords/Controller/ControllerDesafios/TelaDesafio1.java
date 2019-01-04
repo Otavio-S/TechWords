@@ -84,7 +84,7 @@ public class TelaDesafio1 extends AppCompatActivity {
                 finish();
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Você acertou: " + resultado + " palavras. Tente novamente!",
+                        "Você acertou: " + resultado + " palavras. \n Tente novamente!",
                         Toast.LENGTH_LONG);
                 toast.show();
 
@@ -185,6 +185,14 @@ public class TelaDesafio1 extends AppCompatActivity {
             });
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Termine o teste primeiro.",
+                Toast.LENGTH_SHORT);
+        toast.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

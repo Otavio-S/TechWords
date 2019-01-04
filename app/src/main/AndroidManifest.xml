@@ -75,6 +75,10 @@
             android:name=".Controller.ControllerDesafios.TelaDesafio3"
             android:theme="@style/TechWords" />
 
+        <activity
+            android:name=".Controller.ControllerDesafios.TelaConclusao"
+            android:theme="@style/TechWords" />
+
     </application>
 
 </manifest>

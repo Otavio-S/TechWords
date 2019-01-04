@@ -48,7 +48,7 @@
     <TextView
         android:id="@+id/txtDescricaoX"
         android:layout_width="208dp"
-        android:layout_height="175dp"
+        android:layout_height="185dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -69,7 +69,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:src="@android:drawable/presence_audio_busy"
+        android:src="@drawable/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +80,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="16dp"
-        android:src="@android:drawable/ic_menu_sort_alphabetically"
+        android:src="@drawable/translate"
         app:layout_constraintEnd_toStartOf="@+id/btnFalar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,7 +89,7 @@
         android:layout_width="133dp"
         android:layout_height="125dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:src="@android:drawable/btn_star"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
@@ -99,7 +99,7 @@
     <TextView
         android:id="@+id/txtSinonimo"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -117,14 +117,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:contentDescription="TODO"
-        android:src="?attr/actionModeCloseDrawable"
+        android:src="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtTraducao"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -137,7 +137,7 @@
     <TextView
         android:id="@+id/txtDescricaoY"
         android:layout_width="351dp"
-        android:layout_height="175dp"
+        android:layout_height="185dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
