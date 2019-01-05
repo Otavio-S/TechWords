@@ -175,17 +175,17 @@ public class TelaPalavra extends Activity {
 
                     Class activity = null;
 
-                    //switch (number) {
-                    //    case 1:
-                    //        activity = TelaDesafio1.class;
-                    //        break;
-                    //    case 2:
-                    //        activity = TelaDesafio2.class;
-                    //        break;
-                    //    case 3:
-                    activity = TelaDesafio3.class;
-                    //        break;
-                    //}
+                    switch (number) {
+                        case 1:
+                            activity = TelaDesafio1.class;
+                            break;
+                        case 2:
+                            activity = TelaDesafio2.class;
+                            break;
+                        case 3:
+                            activity = TelaDesafio3.class;
+                            break;
+                    }
                     Intent intent = new Intent(TelaPalavra.this, activity);
                     intent.putExtra("disciplina", disciplina);
                     intent.putExtra("id", status);
@@ -232,8 +232,12 @@ public class TelaPalavra extends Activity {
         BancoDisciplinas bancoDisciplinas = new BancoDisciplinas(getApplicationContext());
 
         int conc = 0;
+        int bef = 0;
         int n = bancoDisciplinas.carregaDados().size();
         for (int i = 0; i < n; i++) {
+            if (bancoDisciplinas.carregaDados().get(i).getId() == (disciplina - 1)) {
+                bef = bancoDisciplinas.carregaDados().get(i).getDisciplinasConcluidas();
+            }
             if (bancoDisciplinas.carregaDados().get(i).getId() == disciplina) {
                 conc = bancoDisciplinas.carregaDados().get(i).getDisciplinasConcluidas();
                 break;
@@ -283,10 +287,19 @@ public class TelaPalavra extends Activity {
                 txtDescricao2.setVisibility(View.VISIBLE);
                 txtDescricao2.setText(descricao);
             }
+        }
 
-        } else {
+        if (conc == 1) {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Você já concluiu essa disciplina!",
+                    Toast.LENGTH_LONG);
+            toast.show();
+            finish();
+        } else if (disciplina == 1) {
+            bef = 1;
+        } else if (bef != 1) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Disciplina bloqueada!",
                     Toast.LENGTH_LONG);
             toast.show();
             finish();

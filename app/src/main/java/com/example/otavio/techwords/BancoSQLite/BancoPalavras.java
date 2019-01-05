@@ -139,7 +139,6 @@ public class BancoPalavras extends SQLiteOpenHelper {
                 " WHERE " + CamposPalavra.COLUNA_ID + " >= " + String.valueOf(id1) +
                 " AND " + CamposPalavra.COLUNA_ID + " <= " + String.valueOf(id2) +
                 " ORDER BY random()";
-        System.out.println("AQUI     " + query);
 
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery(query, null);
 
@@ -159,7 +158,39 @@ public class BancoPalavras extends SQLiteOpenHelper {
         return palavra;
     }
 
-    // cod between x and y order by rand()
+    public int carregaIDPorPalavra(String palavra) {
+
+        List<Palavra> id = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        String query = "SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_PALAVRA + " LIKE '" + palavra + "'";
+
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            Palavra word = new Palavra();
+            word.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
+            id.add(word);
+        }
+
+        return id.get(0).getId();
+    }
+
+    public int carregaIDPorSinonimo(String sinonimo) {
+
+        List<Palavra> id = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_SINONIMO + " LIKE '" + sinonimo + "'", null);
+
+        if (cursor.moveToFirst()) {
+            Palavra word = new Palavra();
+            word.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
+            id.add(word);
+
+        }
+
+        return id.get(0).getId();
+    }
 
     public String alteraRegistro(Palavra palavra) {
         SQLiteDatabase db = getWritableDatabase();

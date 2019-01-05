@@ -1,5 +1,6 @@
 package com.example.otavio.techwords.Controller.ControllerDesafios;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -43,31 +44,42 @@ public class TelaDesafio3 extends AppCompatActivity {
     private View.OnClickListener btnVerificarOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
             int pontos = 0;
-            int corP1 = btnPalavra1.getSolidColor();
-            int corP2 = btnPalavra2.getSolidColor();
-            int corP3 = btnPalavra3.getSolidColor();
-            int corP4 = btnPalavra4.getSolidColor();
-            int corP5 = btnPalavra5.getSolidColor();
 
-            int corS1 = btnSinonimo1.getSolidColor();
-            int corS2 = btnSinonimo2.getSolidColor();
-            int corS3 = btnSinonimo3.getSolidColor();
-            int corS4 = btnSinonimo4.getSolidColor();
-            int corS5 = btnSinonimo5.getSolidColor();
+            int corP1 = 1;
+            int corP2 = 2;
+            int corP3 = 3;
+            int corP4 = 4;
+            int corP5 = 5;
 
-            int idP1 = btnPalavra1.getId();
-            int idP2 = btnPalavra2.getId();
-            int idP3 = btnPalavra3.getId();
-            int idP4 = btnPalavra4.getId();
-            int idP5 = btnPalavra5.getId();
+            int corS1 = btnSinonimo1.getPaintFlags();
+            int corS2 = btnSinonimo2.getPaintFlags();
+            int corS3 = btnSinonimo3.getPaintFlags();
+            int corS4 = btnSinonimo4.getPaintFlags();
+            int corS5 = btnSinonimo5.getPaintFlags();
 
-            int idS1 = btnSinonimo1.getId();
-            int idS2 = btnSinonimo2.getId();
-            int idS3 = btnSinonimo3.getId();
-            int idS4 = btnSinonimo4.getId();
-            int idS5 = btnSinonimo5.getId();
+            String p1 = String.valueOf(btnPalavra1.getText());
+            int idP1 = bancoPalavras.carregaIDPorPalavra(p1);
+            String p2 = String.valueOf(btnPalavra2.getText());
+            int idP2 = bancoPalavras.carregaIDPorPalavra(p2);
+            String p3 = String.valueOf(btnPalavra3.getText());
+            int idP3 = bancoPalavras.carregaIDPorPalavra(p3);
+            String p4 = String.valueOf(btnPalavra4.getText());
+            int idP4 = bancoPalavras.carregaIDPorPalavra(p4);
+            String p5 = String.valueOf(btnPalavra5.getText());
+            int idP5 = bancoPalavras.carregaIDPorPalavra(p5);
 
+            String s1 = String.valueOf(btnSinonimo1.getText());
+            int idS1 = bancoPalavras.carregaIDPorSinonimo(s1);
+            String s2 = String.valueOf(btnSinonimo2.getText());
+            int idS2 = bancoPalavras.carregaIDPorSinonimo(s2);
+            String s3 = String.valueOf(btnSinonimo3.getText());
+            int idS3 = bancoPalavras.carregaIDPorSinonimo(s3);
+            String s4 = String.valueOf(btnSinonimo4.getText());
+            int idS4 = bancoPalavras.carregaIDPorSinonimo(s4);
+            String s5 = String.valueOf(btnSinonimo5.getText());
+            int idS5 = bancoPalavras.carregaIDPorSinonimo(s5);
 
             if ((idP1 == idS1) && (corP1 == corS1)) {
                 pontos += 1;
@@ -215,11 +227,11 @@ public class TelaDesafio3 extends AppCompatActivity {
     private void inserirPalavras() {
         List<Palavra> palavras = bancoPalavras.carregaDadosAleatorio(idInicial, idFinal);
 
-        btnPalavra1.setId(palavras.get(0).getId());
         String palavra1 = palavras.get(0).getPalavra();
         backgroung = btnPalavra1.getBackground();
         btnPalavra1.setText(palavra1);
         btnPalavra1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 0) {
@@ -242,7 +254,6 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        btnPalavra2.setId(palavras.get(1).getId());
         String palavra2 = palavras.get(1).getPalavra();
         btnPalavra2.setText(palavra2);
         btnPalavra2.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +279,6 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        btnPalavra3.setId(palavras.get(2).getId());
         String palavra3 = palavras.get(2).getPalavra();
         btnPalavra3.setText(palavra3);
         btnPalavra3.setOnClickListener(new View.OnClickListener() {
@@ -294,7 +304,6 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        btnPalavra4.setId(palavras.get(3).getId());
         String palavra4 = palavras.get(3).getPalavra();
         btnPalavra4.setText(palavra4);
         btnPalavra4.setOnClickListener(new View.OnClickListener() {
@@ -320,7 +329,6 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        btnPalavra5.setId(palavras.get(4).getId());
         String palavra5 = palavras.get(4).getPalavra();
         btnPalavra5.setText(palavra5);
         btnPalavra5.setOnClickListener(new View.OnClickListener() {
@@ -350,115 +358,140 @@ public class TelaDesafio3 extends AppCompatActivity {
     private void inserirSinonimos() {
         List<Palavra> palavras = bancoPalavras.carregaDadosAleatorio(idInicial, idFinal);
 
-        btnSinonimo1.setId(palavras.get(0).getId());
         String sinonimo1 = palavras.get(0).getSinonimo();
         btnSinonimo1.setText(sinonimo1);
         btnSinonimo1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 1) {
                     btnSinonimo1.setBackgroundColor(Color.BLUE);
+                    btnSinonimo1.setPaintFlags(1);
                 } else if (temp == 2) {
                     btnSinonimo1.setBackgroundColor(Color.GRAY);
+                    btnSinonimo1.setPaintFlags(2);
                 } else if (temp == 3) {
                     btnSinonimo1.setBackgroundColor(Color.YELLOW);
+                    btnSinonimo1.setPaintFlags(3);
                 } else if (temp == 4) {
                     btnSinonimo1.setBackgroundColor(Color.GREEN);
+                    btnSinonimo1.setPaintFlags(4);
                 } else if (temp == 5) {
                     btnSinonimo1.setBackgroundColor(Color.RED);
-                } else if (temp == 0){
+                    btnSinonimo1.setPaintFlags(5);
+                } else if (temp == 0) {
                     btnSinonimo1.setBackground(backgroung);
                 }
                 temp = 0;
             }
         });
 
-        btnSinonimo2.setId(palavras.get(1).getId());
         String sinonimo2 = palavras.get(1).getSinonimo();
         btnSinonimo2.setText(sinonimo2);
         btnSinonimo2.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 1) {
                     btnSinonimo2.setBackgroundColor(Color.BLUE);
+                    btnSinonimo2.setPaintFlags(1);
                 } else if (temp == 2) {
                     btnSinonimo2.setBackgroundColor(Color.GRAY);
+                    btnSinonimo2.setPaintFlags(2);
                 } else if (temp == 3) {
                     btnSinonimo2.setBackgroundColor(Color.YELLOW);
+                    btnSinonimo2.setPaintFlags(3);
                 } else if (temp == 4) {
                     btnSinonimo2.setBackgroundColor(Color.GREEN);
+                    btnSinonimo2.setPaintFlags(4);
                 } else if (temp == 5) {
                     btnSinonimo2.setBackgroundColor(Color.RED);
-                } else if (temp == 0){
+                    btnSinonimo2.setPaintFlags(5);
+                } else if (temp == 0) {
                     btnSinonimo2.setBackground(backgroung);
                 }
                 temp = 0;
             }
         });
 
-        btnSinonimo3.setId(palavras.get(2).getId());
         String sinonimo3 = palavras.get(2).getSinonimo();
         btnSinonimo3.setText(sinonimo3);
         btnSinonimo3.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 1) {
                     btnSinonimo3.setBackgroundColor(Color.BLUE);
+                    btnSinonimo3.setPaintFlags(1);
                 } else if (temp == 2) {
                     btnSinonimo3.setBackgroundColor(Color.GRAY);
+                    btnSinonimo3.setPaintFlags(2);
                 } else if (temp == 3) {
                     btnSinonimo3.setBackgroundColor(Color.YELLOW);
+                    btnSinonimo3.setPaintFlags(3);
                 } else if (temp == 4) {
                     btnSinonimo3.setBackgroundColor(Color.GREEN);
+                    btnSinonimo3.setPaintFlags(4);
                 } else if (temp == 5) {
                     btnSinonimo3.setBackgroundColor(Color.RED);
-                } else if (temp == 0){
+                    btnSinonimo3.setPaintFlags(5);
+                } else if (temp == 0) {
                     btnSinonimo3.setBackground(backgroung);
                 }
                 temp = 0;
             }
         });
 
-        btnSinonimo4.setId(palavras.get(3).getId());
         String sinonimo4 = palavras.get(3).getSinonimo();
         btnSinonimo4.setText(sinonimo4);
         btnSinonimo4.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 1) {
                     btnSinonimo4.setBackgroundColor(Color.BLUE);
+                    btnSinonimo4.setPaintFlags(1);
                 } else if (temp == 2) {
                     btnSinonimo4.setBackgroundColor(Color.GRAY);
+                    btnSinonimo4.setPaintFlags(2);
                 } else if (temp == 3) {
                     btnSinonimo4.setBackgroundColor(Color.YELLOW);
+                    btnSinonimo4.setPaintFlags(3);
                 } else if (temp == 4) {
                     btnSinonimo4.setBackgroundColor(Color.GREEN);
+                    btnSinonimo4.setPaintFlags(4);
                 } else if (temp == 5) {
                     btnSinonimo4.setBackgroundColor(Color.RED);
-                } else if (temp == 0){
+                    btnSinonimo4.setPaintFlags(5);
+                } else if (temp == 0) {
                     btnSinonimo4.setBackground(backgroung);
                 }
                 temp = 0;
             }
         });
 
-        btnSinonimo5.setId(palavras.get(4).getId());
         String sinonimo5 = palavras.get(4).getSinonimo();
         btnSinonimo5.setText(sinonimo5);
         btnSinonimo5.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 if (temp == 1) {
                     btnSinonimo5.setBackgroundColor(Color.BLUE);
+                    btnSinonimo5.setPaintFlags(1);
                 } else if (temp == 2) {
                     btnSinonimo5.setBackgroundColor(Color.GRAY);
+                    btnSinonimo5.setPaintFlags(2);
                 } else if (temp == 3) {
                     btnSinonimo5.setBackgroundColor(Color.YELLOW);
+                    btnSinonimo5.setPaintFlags(3);
                 } else if (temp == 4) {
                     btnSinonimo5.setBackgroundColor(Color.GREEN);
+                    btnSinonimo5.setPaintFlags(4);
                 } else if (temp == 5) {
                     btnSinonimo5.setBackgroundColor(Color.RED);
-                } else if (temp == 0){
+                    btnSinonimo5.setPaintFlags(5);
+                } else if (temp == 0) {
                     btnSinonimo5.setBackground(backgroung);
                 }
                 temp = 0;
