@@ -295,6 +295,12 @@ public class TelaPalavra extends Activity {
                     Toast.LENGTH_LONG);
             toast.show();
             finish();
+        } else if (bancoDisciplinas.carregaDados().get(this.disciplina - 1).getDisciplinasConcluidas() == 1){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Você concluiu esta disciplina!",
+                    Toast.LENGTH_LONG);
+            toast.show();
+            finish();
         }
         /*if (conc == 1) {
             Toast toast = Toast.makeText(getApplicationContext(),

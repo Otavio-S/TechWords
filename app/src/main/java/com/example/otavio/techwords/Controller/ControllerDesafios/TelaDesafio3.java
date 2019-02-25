@@ -71,15 +71,15 @@ public class TelaDesafio3 extends AppCompatActivity {
             int idP5 = bancoPalavras.carregaIDPorPalavra(p5);
 
             String s1 = String.valueOf(btnSinonimo1.getText());
-            int idS1 = bancoPalavras.carregaIDPorSinonimo(s1);
+            int idS1 = bancoPalavras.carregaIDPorTraducao(s1);
             String s2 = String.valueOf(btnSinonimo2.getText());
-            int idS2 = bancoPalavras.carregaIDPorSinonimo(s2);
+            int idS2 = bancoPalavras.carregaIDPorTraducao(s2);
             String s3 = String.valueOf(btnSinonimo3.getText());
-            int idS3 = bancoPalavras.carregaIDPorSinonimo(s3);
+            int idS3 = bancoPalavras.carregaIDPorTraducao(s3);
             String s4 = String.valueOf(btnSinonimo4.getText());
-            int idS4 = bancoPalavras.carregaIDPorSinonimo(s4);
+            int idS4 = bancoPalavras.carregaIDPorTraducao(s4);
             String s5 = String.valueOf(btnSinonimo5.getText());
-            int idS5 = bancoPalavras.carregaIDPorSinonimo(s5);
+            int idS5 = bancoPalavras.carregaIDPorTraducao(s5);
 
             if ((idP1 == idS1) && (corP1 == corS1)) {
                 pontos += 1;
@@ -358,7 +358,7 @@ public class TelaDesafio3 extends AppCompatActivity {
     private void inserirSinonimos() {
         List<Palavra> palavras = bancoPalavras.carregaDadosAleatorio(idInicial, idFinal);
 
-        String sinonimo1 = palavras.get(0).getSinonimo();
+        String sinonimo1 = palavras.get(0).getTraducao();
         btnSinonimo1.setText(sinonimo1);
         btnSinonimo1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
@@ -386,7 +386,7 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        String sinonimo2 = palavras.get(1).getSinonimo();
+        String sinonimo2 = palavras.get(1).getTraducao();
         btnSinonimo2.setText(sinonimo2);
         btnSinonimo2.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
@@ -414,7 +414,7 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        String sinonimo3 = palavras.get(2).getSinonimo();
+        String sinonimo3 = palavras.get(2).getTraducao();
         btnSinonimo3.setText(sinonimo3);
         btnSinonimo3.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
@@ -442,7 +442,7 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        String sinonimo4 = palavras.get(3).getSinonimo();
+        String sinonimo4 = palavras.get(3).getTraducao();
         btnSinonimo4.setText(sinonimo4);
         btnSinonimo4.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
@@ -470,7 +470,7 @@ public class TelaDesafio3 extends AppCompatActivity {
             }
         });
 
-        String sinonimo5 = palavras.get(4).getSinonimo();
+        String sinonimo5 = palavras.get(4).getTraducao();
         btnSinonimo5.setText(sinonimo5);
         btnSinonimo5.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")

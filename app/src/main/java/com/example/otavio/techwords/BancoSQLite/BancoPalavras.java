@@ -16,7 +16,7 @@ import java.util.List;
 public class BancoPalavras extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "TechWordsPalavras.db";
-    private static final int VERSAO_BANCO = 5;
+    private static final int VERSAO_BANCO = 6;
 
     public BancoPalavras(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -181,6 +181,22 @@ public class BancoPalavras extends SQLiteOpenHelper {
         List<Palavra> id = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_SINONIMO + " LIKE '" + sinonimo + "'", null);
+
+        if (cursor.moveToFirst()) {
+            Palavra word = new Palavra();
+            word.setId(cursor.getInt(cursor.getColumnIndex(CamposPalavra.COLUNA_ID)));
+            id.add(word);
+
+        }
+
+        return id.get(0).getId();
+    }
+
+    public int carregaIDPorTraducao(String traducao) {
+
+        List<Palavra> id = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM " + CamposPalavra.NOME_TABELA + " WHERE " + CamposPalavra.COLUNA_TRADUCAO + " LIKE '" + traducao + "'", null);
 
         if (cursor.moveToFirst()) {
             Palavra word = new Palavra();
