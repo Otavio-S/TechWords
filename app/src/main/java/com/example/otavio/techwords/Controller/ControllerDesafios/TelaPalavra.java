@@ -289,21 +289,26 @@ public class TelaPalavra extends Activity {
             }
         }
 
-        if (conc == 1) {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Você já concluiu essa disciplina!",
-                    Toast.LENGTH_LONG);
-            toast.show();
-            finish();
-        } else if (disciplina == 1) {
-            bef = 1;
-        } else if (bef != 1) {
+        if (!bancoDisciplinas.carregaDados().get(this.disciplina - 1).getDisciplina().equals("Manutenção de Comp.")) {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Disciplina bloqueada!",
                     Toast.LENGTH_LONG);
             toast.show();
             finish();
         }
+        /*if (conc == 1) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Você já concluiu essa disciplina!",
+                    Toast.LENGTH_LONG);
+            toast.show();
+            finish();
+        } else if (bef != 1 && disciplina != 1) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Disciplina bloqueada!",
+                    Toast.LENGTH_LONG);
+            toast.show();
+            finish();
+        }*/
 
     }
 

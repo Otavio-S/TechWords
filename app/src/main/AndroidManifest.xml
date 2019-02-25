@@ -50,16 +50,6 @@
         </activity>
 
         <activity
-            android:name=".TestCRUD"
-            android:label="@string/teste"
-            android:parentActivityName=".Controller.ControllerInicial.TelaInicial"
-            android:theme="@style/TechWords">
-            <meta-data
-                android:name="android.support.Teste"
-                android:value=".Controller.TelaInicial" />
-        </activity>
-
-        <activity
             android:name=".BancoSQLite.DadosIniciais"
             android:theme="@style/TechWords" />
 

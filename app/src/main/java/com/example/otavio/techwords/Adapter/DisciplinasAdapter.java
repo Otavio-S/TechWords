@@ -48,6 +48,7 @@ public class DisciplinasAdapter extends RecyclerView.Adapter<DisciplinasAdapter.
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, TelaPalavra.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("item", position);
                 context.startActivity(intent);
             }
